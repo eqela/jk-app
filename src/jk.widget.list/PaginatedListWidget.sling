@@ -218,7 +218,7 @@ ctor(ctx as GuiApplicationContext)
 }
 
 func getListCount as int:
-	return sizeof Widget.getChildren(list)
+	return (sizeof Widget.getChildren(list)) as int
 
 func setWidgetPreviousImageResource(resource as string) as this
 {

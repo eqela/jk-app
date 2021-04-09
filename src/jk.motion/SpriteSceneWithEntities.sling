@@ -87,7 +87,7 @@ func grow
 		nsz = 1024
 	}
 	else {
-		nsz = sizeof entities * 2
+		nsz = (sizeof entities) as int * 2
 	}
 	var v = new Entity[nsz]
 	if entities {
@@ -104,7 +104,7 @@ func addEntity(entity as Entity)
 	var thisIndex = highestIndex + 1
 	var count = 0
 	if entities:
-		count = sizeof entities
+		count = (sizeof entities) as int
 	if thisIndex >= count:
 		grow()
 	entity.setScene(this)
