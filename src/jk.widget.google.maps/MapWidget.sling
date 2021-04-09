@@ -967,8 +967,15 @@ class MyMapSettings public
 	var canTilt = true
 	var canRotate = true
 	var mapHasMyLocation = false
+	var context as GuiApplicationContext
 	pvar settingObject as object
 	pvar mapObject as object
+
+	ctor:
+		nop
+
+	ctor(context as GuiApplicationContext):
+		this.context = context
 
 	func setCanZoom(enable as bool)
 	{
@@ -1077,7 +1084,9 @@ class MyMapSettings public
 							((com.google.android.gms.maps.GoogleMap)mapObject).setMyLocationEnabled(mapHasMyLocation);
 						}
 						catch(java.lang.SecurityException e) {
-							context.logError("Location permission is not granted.");
+							if(context != null) {
+								context.logError("Location permission is not granted.");
+							}
 						}
 					}}}
 				}
@@ -1182,7 +1191,7 @@ ctor(context as GuiApplicationContext)
 	}
 	this.context = context
 	markerSize = context.getHeightValue("6mm")
-	mapSettings = new MyMapSettings()
+	mapSettings = new MyMapSettings(context)
 }
 
 func onWidgetAddingToParent:

@@ -57,7 +57,7 @@ class GradientObject is AndroidShaderObject abstract
 
 	func getColors protected as int[]
 	{
-		var size = sizeof colorStops
+		var size = (sizeof colorStops) as int
 		var colors = new int[size]
 		for(var i = 0; i < size; i++) {
 			var colorStop = colorStops[i]
@@ -73,7 +73,7 @@ class GradientObject is AndroidShaderObject abstract
 
 	func getStops protected as float[]
 	{
-		var size = sizeof colorStops
+		var size = (sizeof colorStops) as int
 		var stops = new float[size]
 		for(var i = 0; i < size; i++) {
 			var colorStop = colorStops[i]
@@ -407,13 +407,13 @@ func bezierCurveTo(cp1x as double, cp1y as double, cp2x as double, cp2y as doubl
 func arc(x as double, y as double, r as double, sAngle as double, eAngle as double, counterclockwise as bool) override
 {
 	assert pathObject
-	var xx = (x - r) as double
-	var yy = (y - r) as double
-	var ww = (xx + r * 2) as double
-	var hh = (yy + r * 2) as double
-	var sa = Math.toRadians(sAngle) as double
-	var ea = Math.toRadians(eAngle) as double
-	pathObject.arcTo(xx, yy, ww, hh, sa, ea, true)
+	var xx = (x - r)
+	var yy = (y - r)
+	var ww = (xx + r * 2)
+	var hh = (yy + r * 2)
+	var sa = Math.toRadians(sAngle)
+	var ea = Math.toRadians(eAngle)
+	pathObject.arcTo(xx as float, yy as float, ww as float, hh as float, sa as float, ea as float, true)
 }
 
 func arcTo(x1 as double, y1 as double, x2 as double, y2 as double, r as double) stub override
