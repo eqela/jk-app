@@ -180,7 +180,7 @@ class MyAudioStream is AudioStream
 	{
 		var audioStream = this.audioStream
 		var shouldLoop = false
-		if v != null && audioStream != null {
+		if v != false && audioStream != null {
 			if v {
 				lang "js" {{{
 					audioStream.loop = true;
@@ -200,7 +200,7 @@ class MyAudioStream is AudioStream
 	func setVolume(v as double) as bool
 	{
 		var audioStream = this.audioStream
-		if v != null && audioStream != null {
+		if v != 0.0 && audioStream != null {
 			if v <= 0.0 {
 				lang "js" {{{
 					audioStream.volume = 0.0;
