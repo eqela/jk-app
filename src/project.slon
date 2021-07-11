@@ -3,7 +3,7 @@
 	projectId "jk-app"
 	title "JK App"
 	libraries [
-		"jk-core:0.39.0"
+		"jk-core:0.43.0"
 		"jk-data:0.34.0"
 		"jk-gfx:0.22.0"
 		"jk-net:0.42.0"
