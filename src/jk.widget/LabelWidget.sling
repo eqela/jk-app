@@ -656,6 +656,10 @@ func updateWidgetFont(changesLayout as bool) private
 					UIFontDescriptor * fontD = [font.fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
 					font = [UIFont fontWithDescriptor:fontD size:fs];
 				}
+				if(widgetFontItalic == YES) {
+					UIFontDescriptor * fontD = [font.fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitItalic];
+					font = [UIFont fontWithDescriptor:fontD size:fs];
+				}
 				[self setFont:font];
 			}}}
 			if widgetTextColor {
@@ -677,6 +681,10 @@ func updateWidgetFont(changesLayout as bool) private
 				}
 				if widgetFontBold == true {
 					var fontD: UIFontDescriptor? = font?.fontDescriptor.withSymbolicTraits(.traitBold)
+					font = UIFont(descriptor: fontD!, size: CGFloat(fs))
+				}
+				if widgetFontItalic == true {
+					var fontD: UIFontDescriptor? = font?.fontDescriptor.withSymbolicTraits(.traitItalic)
 					font = UIFont(descriptor: fontD!, size: CGFloat(fs))
 				}
 				self.font = font
