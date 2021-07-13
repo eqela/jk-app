@@ -301,17 +301,17 @@ func updateCanvasRoundingRadius private
 		var r2 = widgetTopRightRadius as float
 		var r3 = widgetBottomRightRadius as float
 		var r4 = widgetBottomLeftRadius as float
+		var rr = new !"android.graphics.drawable.shapes.RoundRectShape"(new float[] { r1, r1, r2, r2, r3, r3, r4, r4 }, null, null)
+		var shape = new !"android.graphics.drawable.ShapeDrawable"(rr)
 		IFDEF "target_java" {
 			lang "java" {{{
-				if(border == null) {
-					border = new android.graphics.drawable.GradientDrawable();
+				if(widgetColor != null) {
+					shape.getPaint().setColor(widgetColor.toARGBInt32());
 				}
-				border.setCornerRadii(new float[] { r1, r1, r2, r2, r3, r3, r4, r4 });
+				setBackgroundDrawable(shape);
 			}}}
 		}
 		ELSE IFDEF "target_kotlin" {
-			var rr = new !"android.graphics.drawable.shapes.RoundRectShape"(new float[] { r1, r1, r2, r2, r3, r3, r4, r4 }, null, null)
-			var shape = new !"android.graphics.drawable.ShapeDrawable"(rr)
 			lang "kotlin" {{{
 				if(widgetColor != null) {
 					shape!!.getPaint().setColor(widgetColor!!.toARGBInt32())
