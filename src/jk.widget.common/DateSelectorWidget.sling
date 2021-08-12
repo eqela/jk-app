@@ -37,6 +37,9 @@ ctor(ctx as GuiApplicationContext)
 	widgetContext = ctx
 }
 
+pvar widgetOnFocusHandler as function
+pvar widgetOnLoseFocusHandler as function
+var widgetValueChangeHandler as function
 var widgetContext as GuiApplicationContext
 var dayBox as SelectWidget
 var monthBox as SelectWidget
@@ -171,3 +174,18 @@ func onChangeValues private
 		d += String.forInteger(x)
 	dayBox.setWidgetItemsAsStringList(d)
 }
+
+func onFocusListener private
+{
+	if widgetOnFocusHandler:
+		widgetOnFocusHandler()
+}
+
+func onLoseFocusListener private
+{
+	if widgetOnLoseFocusHandler:
+		widgetOnLoseFocusHandler()
+}
+
+func setWidgetValueChangeHandler(handler as function):
+	widgetValueChangeHandler = handler
