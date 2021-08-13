@@ -92,6 +92,12 @@ func initializeWidget override
 	box.addWidget(monthBox, 2)
 	box.addWidget(yearBox, 1)
 	addWidget(box)
+	setWidgetMouseOver(func {
+		onFocusListener()
+	})
+	setWidgetMouseOut(func {
+		onLoseFocusListener()
+	})
 	applyValueToWidgets()
 }
 
@@ -173,6 +179,7 @@ func onChangeValues private
 	for(var x = 1; x <= numberOfDays; x++):
 		d += String.forInteger(x)
 	dayBox.setWidgetItemsAsStringList(d)
+	valueChangeHandler()
 }
 
 func onFocusListener private
