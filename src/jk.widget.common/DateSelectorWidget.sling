@@ -39,7 +39,7 @@ ctor(ctx as GuiApplicationContext)
 
 pvar widgetOnFocusHandler as function
 pvar widgetOnLoseFocusHandler as function
-var widgetValueChangeHandler as function
+pvar widgetValueChangeHandler as function
 var widgetContext as GuiApplicationContext
 var dayBox as SelectWidget
 var monthBox as SelectWidget
@@ -187,5 +187,8 @@ func onLoseFocusListener private
 		widgetOnLoseFocusHandler()
 }
 
-func setWidgetValueChangeHandler(handler as function):
-	widgetValueChangeHandler = handler
+func valueChangeHandler private
+{
+	if widgetValueChangeHandler:
+		widgetValueChangeHandler()
+}
