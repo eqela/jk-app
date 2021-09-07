@@ -61,7 +61,7 @@ func isSafari static as bool:
 	return isBrowser("safari") && not isBrowser("chrome")
 
 func createElement(type as string) static as object:
-	return lang "js" object {{{ document.createElement(type) }}}
+	return lang "js" object {{{ document.createElement(_type) }}}
 
 func getDocument static as object:
 	return lang "js" object {{{ document }}}
