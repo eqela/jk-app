@@ -207,6 +207,8 @@ func updateWidgetBorder(borderSide as int, borderWidth as int, borderColor as Co
 		else {
 			HTMLDOM.setStyle(element, borderSideString, String.forInteger(borderWidth) .. "px")
 			HTMLDOM.setStyle(element, borderSideString .. "-style", borderStyleString)
+			if not borderColor:
+				borderColor = Color.black()
 			HTMLDOM.setStyle(element, borderSideString .. "-color", borderColor.toRgbString())
 			HTMLDOM.setStyle(element, "box-sizing", "border-box")
 		}

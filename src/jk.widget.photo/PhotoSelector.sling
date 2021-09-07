@@ -204,6 +204,7 @@ func openPhotoDialog(widget as Widget, callback as function<void, Image, string,
 			var fileSelector = document.createElement('input');
 			fileSelector.setAttribute('type', "file");
 			fileSelector.setAttribute('accept', "image/*");
+			fileSelector.setAttribute('style', "display: none");
 			fileSelector.addEventListener("change", function handleFiles() {
 				var files = fileSelector.files;
 				if(typeof files === "undefined" || files === null) {
@@ -227,7 +228,7 @@ func openPhotoDialog(widget as Widget, callback as function<void, Image, string,
 							var filename = path.substring(path.lastIndexOf("\\")+1);
 							console.log("Filename: " + filename);
 							if(cb != null) {
-							CaveHTMLDOM.remove(fileSelector);
+							JkUiHTMLDOM.remove(fileSelector);
 								if(filename == null) {
 									cb(null, null, Error.forCode("no_file_data"))
 								}
@@ -241,7 +242,7 @@ func openPhotoDialog(widget as Widget, callback as function<void, Image, string,
 				reader.readAsDataURL(file);
 			});
 			fileSelector.click();
-			CaveHTMLDOM.appendToBody(fileSelector);
+			JkUiHTMLDOM.appendToBody(fileSelector);
 		}}}
 	}
 	ELSE IFDEF "target_ios" {
