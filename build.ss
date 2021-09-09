@@ -22,6 +22,6 @@
 # SOFTWARE.
 #
 
-lib sling-tools:0.63.0
+lib sling-tools:0.71.0
 import sling.tools.compiler
 return SlingCompilerTool.forCrossPlatformLibraryDirectory().executeScript(args)
