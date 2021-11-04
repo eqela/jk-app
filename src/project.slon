@@ -4,8 +4,8 @@
 	title "JK App"
 	libraries [
 		"jk-core:0.43.0"
-		"jk-data:0.34.0"
-		"jk-gfx:0.22.0"
+		"jk-data:0.39.1"
+		"jk-gfx:0.22.1"
 		"jk-net:0.42.0"
 	]
 }

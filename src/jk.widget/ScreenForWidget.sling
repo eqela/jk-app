@@ -136,8 +136,8 @@ IFDEF "target_ios"
 
 			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 				JkLangDynamicMap *data = [[JkLangDynamicMap alloc] init];
-				NSMutableDictionary *o = [userInfo mutableCopy];
-				[data setString:@"data" value:o];
+				JkLangDynamicMap *o = [JkLangDynamicMap forObjectMap: [userInfo mutableCopy]];
+				[data setObject:@"data" value:o];
 				[self onStartScreenWithData:data];
 			}
 
@@ -147,8 +147,8 @@ IFDEF "target_ios"
 					return;
 				}
 				JkLangDynamicMap *data = [[JkLangDynamicMap alloc] init];
-				NSMutableDictionary *o = [userInfo mutableCopy];
-				[data setString:@"data" value:o];
+				JkLangDynamicMap *o = [JkLangDynamicMap forObjectMap: [userInfo mutableCopy]];
+				[data setObject:@"data" value:o];
 				[self onStartScreenWithData:data];
 			}
 
